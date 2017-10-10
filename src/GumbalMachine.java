@@ -27,7 +27,7 @@ public class GumbalMachine {
 			System.out.println("'Please wait , we're already giving you a gumball");
 		}
 	}
-	private void ejectQuarter() {
+	void ejectQuarter() {
 		if (state ==HAS_QUATER){
 			System.out.println("Quarter returned");
 			state =NO_QUARTER;
@@ -39,7 +39,7 @@ public class GumbalMachine {
 			System.out.println("You can't eject, you haven't inserted a quarter yet");
 		}
 	}
-		private void turnCrank() {
+		void turnCrank() {
 			if (state ==SOLD){
 				System.out.println("Turning twice doesn't get you another gumball!");
 			}else if (state == NO_QUARTER){
@@ -69,5 +69,20 @@ public class GumbalMachine {
 			}else if (state == HAS_QUATER){
 				System.out.println("No gumball dispensed");
 			}
+		}
+		public String toString(){
+			String status = "Gumball Machine";
+			if(state == HAS_QUATER){
+				status = status+"\n status : HAS_QUARTER";
+			} else if(state == NO_QUARTER){
+			    status = status+"\n status : NO_QUARTER";
+			} else if(state == SOLD){
+				status = status+"\n status :  SOLD";
+	        } else if(state == SOLD_OUT){
+	        	status = status+"\n status :  SOLD_OUT";
+	        }
+			status = status+"\n status : "+this.count;
+			
+			return status;
 		}
 }
